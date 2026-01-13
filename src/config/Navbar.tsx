@@ -5,8 +5,8 @@ interface NavItem {
 
 export const NavbarConfig = {
     logo: {
-        src: "/next.svg",
-        alt: "Next Logo",
+        src: "",
+        alt: "Logo",
     }, 
     navItems: [
         {

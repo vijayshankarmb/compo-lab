@@ -2,46 +2,46 @@ import React from 'react'
 import Link from 'next/link'
 import Container from './Container'
 import { NavbarConfig } from '@/config/Navbar'
-import Image from 'next/image'
 import { Button } from '../ui/button'
 
 const Navbar = () => {
     return (
-        <Container className='sticky top-0 z-50 py-6 backdrop-blur-sm'>
-            <div className='flex justify-between border-b p-4 border-default'>
-                <div className='flex items-baseline gap-4'>
-                    <Link href="/">
-                        <Image
-                            src={NavbarConfig.logo.src}
-                            alt={NavbarConfig.logo.alt}
-                            width={80}
-                            height={80}
-                        />
-                    </Link>
-                </div>
-                <div className='flex items-center gap-4'>
-                    {
-                        NavbarConfig.navItems.map((item) => (
-                            <Link
-                                className='transition-all duration-300 ease-in-out hover:underline'
-                                key={item.label}
-                                href={item.href}
+        <header className='sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
+            <Container>
+                <div className='flex h-16 items-center justify-between'>
+                    <div className='flex items-center gap-6'>
+                        <Link href="/" className="flex items-center space-x-2">
+                            <span className="font-bold text-lg tracking-tight">CompoLab</span>
+                        </Link>
+                    </div>
+                    <nav className="flex items-center gap-6 text-sm font-medium">
+                        {
+                            NavbarConfig.navItems.map((item) => (
+                                <Link
+                                    key={item.label}
+                                    href={item.href}
+                                    className='transition-all hover:text-foreground/80 duration-300 ease-in-out hover:underline text-foreground/60'
                                 >
-                                {item.label}
-                            </Link>
-                        ))
-                    }
+                                    {item.label}
+                                </Link>
+                            ))
+                        }
+                    </nav>
+
+                    <div className='flex items-center gap-4'>
+                        <Button variant="ghost" size="sm" className="text-foreground/60 hover:text-foreground">
+                            Login
+                        </Button>
+                        <Button
+                            size="sm"
+                            className="bg-primary text-primary-foreground hover:bg-primary/90"
+                        >
+                            Sign Up
+                        </Button>
+                    </div>
                 </div>
-                <div className='flex justify-center items-cente gap-4'>
-                    <Button variant="outline" size="sm">
-                        Login
-                    </Button>
-                    <Button variant="default" size="sm">
-                        SignUp
-                    </Button>
-                </div>
-            </div>
-        </Container>
+            </Container>
+        </header>
     )
 }
 
