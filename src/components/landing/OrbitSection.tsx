@@ -1,18 +1,45 @@
 "use client"
 
-import { motion } from "motion/react"
+import { motion, useMotionTemplate } from "motion/react"
 import Container from "../common/Container"
 import ReactIcon from "@/config/ReactIcon"
 import TailwindCss from "@/config/TailwindCss"
+import { useRef } from "react"
+import { useScroll, useTransform, useSpring } from "motion/react"
 
 const OrbitSection = () => {
+
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  })
+
+  const blur = useTransform(scrollYProgress, [0.7, 1], [0, 10])
+  const scale = useTransform(scrollYProgress, [0.5, 1], [1, 0.8])
+  const translateContent = useSpring(
+    useTransform(scrollYProgress, [0, 1], [-100, 100]), 
+    {
+      stiffness: 100,
+      damping: 30,
+      mass: 1
+    }
+  )
+
   return (
     <section className="py-32 overflow-hidden">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+        <div
+        ref={ref}
+        className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
 
           {/* LEFT CONTENT */}
-          <div className="space-y-6">
+          <motion.div 
+          style={{
+            filter: useMotionTemplate`blur(${blur}px)`,
+            scale
+          }}
+          className="space-y-6">
             <h2 className="text-4xl font-semibold tracking-tight">
               See UI interactions in motion
             </h2>
@@ -28,10 +55,15 @@ const OrbitSection = () => {
               <li>• Compare motion timings side by side</li>
               <li>• Catch awkward transitions before code</li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* RIGHT VISUAL */}
-          <div className="relative flex items-center justify-center h-105">
+          <motion.div 
+          style={{
+            y: translateContent,
+            scale,
+          }}
+          className="relative flex items-center justify-center h-105 mt-10">
 
             {/* OUTER ORBIT */}
             <motion.div
@@ -88,7 +120,7 @@ const OrbitSection = () => {
               UI
             </div>
 
-          </div>
+          </motion.div>
         </div>
       </Container>
     </section>
