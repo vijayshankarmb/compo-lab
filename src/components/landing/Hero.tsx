@@ -7,7 +7,7 @@ import { WandSparkles } from 'lucide-react';
 import { ChevronsRight } from 'lucide-react';
 import Image from 'next/image';
 import { motion } from "motion/react"
-import { useScroll, useTransform } from 'motion/react';
+import { useScroll, useTransform, useSpring } from 'motion/react';
 
 const Hero = () => {
 
@@ -17,7 +17,14 @@ const Hero = () => {
         offset: ["start end", "end start"],
 
     })
-    const translateContent = useTransform(scrollYProgress, [0, 1], [-200, 200]);
+    const translateContent = useSpring(
+        useTransform(scrollYProgress, [0, 1], [-200, 200]), 
+        {
+            stiffness: 100,
+            damping: 30,
+            mass: 1
+        }
+    )
 
     return (
         <section ref={ref} className="relative overflow-hidden pt-32 pb-24">
@@ -52,7 +59,7 @@ const Hero = () => {
                     style={
                         {y: translateContent}
                     }
-                     className='mt-16 rounded-xl border-border/50 shadow-lg bg-card p-4'>
+                     className='mt-12 rounded-xl border-border/50 shadow-lg bg-card p-4'>
                         <Image
                             src="/preview.jpg"
                             alt="Product preview screenshot"

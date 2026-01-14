@@ -1,10 +1,16 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import Link from 'next/link'
 import Container from './Container'
 import { NavbarConfig } from '@/config/Navbar'
 import { Button } from '../ui/button'
+import { motion } from 'motion/react'
 
 const Navbar = () => {
+
+    const [hovered, setHovered] = useState<number | null>(null)
+
     return (
         <header className='sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
             <Container>
@@ -14,15 +20,29 @@ const Navbar = () => {
                             <span className="font-bold text-lg tracking-tight">CompoLab</span>
                         </Link>
                     </div>
-                    <nav className="flex items-center gap-6 text-sm font-medium">
+                    <nav 
+                    onMouseLeave={() => setHovered(null)}
+                    className="flex items-center gap-2 text-sm font-medium"
+                    >
                         {
-                            NavbarConfig.navItems.map((item) => (
+                            NavbarConfig.navItems.map((item, idx) => (
                                 <Link
+                                    onMouseEnter={() => setHovered(idx)}
                                     key={item.label}
                                     href={item.href}
-                                    className='transition-all hover:text-foreground/80 duration-300 ease-in-out hover:underline text-foreground/60'
+                                    className='relative group w-full px-4 py-2'
                                 >
-                                    {item.label}
+                                    {hovered === idx &&
+                                     <motion.div 
+                                     layoutId="nav-hover-pill"
+                                     className='absolute inset-0 rounded-full w-full h-full bg-primary '
+                                     ></motion.div> 
+                                    }
+                                    <span className={`relative z-10 transition-colors duration-300 ${
+                                    hovered === idx ? 'text-primary-foreground' : 'text-foreground/60'
+                                }`}>
+                                        {item.label}
+                                    </span>
                                 </Link>
                             ))
                         }
