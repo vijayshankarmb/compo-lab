@@ -18,7 +18,7 @@ const Hero = () => {
 
     })
     const translateContent = useSpring(
-        useTransform(scrollYProgress, [0, 1], [-200, 200]), 
+        useTransform(scrollYProgress, [0, 1], [-200, 200]),
         {
             stiffness: 100,
             damping: 30,
@@ -45,21 +45,21 @@ const Hero = () => {
                         interaction states early — reducing rework and guesswork.
                     </p>
                     <div className='flex gap-6 mt-10'>
-                            <Button variant="outline"
-                                className="group relative px-8 py-6 text-base">
-                                    <span className='absolute inset-x-0 bottom-px h-px w-full bg-linear-to-r from-blue-500/0 via-blue-500 to-blue-500/0 '></span>
-                                    <span className='opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute inset-x-0 bottom-px h-2 w-full bg-linear-to-r from-blue-500/0 via-blue-500 to-blue-500/0 blur-sm '></span>
-                                Get Started
-                            </Button>
+                        <Button variant="outline"
+                            className="group relative px-8 py-6 text-base">
+                            <span className='absolute inset-x-0 bottom-px h-px w-full bg-linear-to-r from-blue-500/0 via-blue-500 to-blue-500/0 '></span>
+                            <span className='opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute inset-x-0 bottom-px h-2 w-full bg-linear-to-r from-blue-500/0 via-blue-500 to-blue-500/0 blur-sm '></span>
+                            Get Started
+                        </Button>
                         <Button variant="ghost" className="px-8 py-6 text-base">
                             Learn more <ChevronsRight className="h-4 w-4" />
                         </Button>
                     </div>
                     <motion.div
-                    style={
-                        {y: translateContent}
-                    }
-                     className='mt-12 rounded-xl border-border/50 shadow-lg bg-card p-4'>
+                        style={
+                            { y: translateContent }
+                        }
+                        className='mt-12 rounded-xl border-border/50 shadow-lg bg-card p-4'>
                         <Image
                             src="/preview.jpg"
                             alt="Product preview screenshot"
