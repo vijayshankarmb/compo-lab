@@ -67,7 +67,7 @@ const OrbitSection = () => {
 
             {/* OUTER ORBIT */}
             <motion.div
-              className="absolute h-80 w-[320px] rounded-full border border-border"
+              className="absolute h-80 w-[320px] rounded-full border-2 border-border"
               animate={{ rotate: -360 }}
               transition={{
                 repeat: Infinity,
@@ -92,7 +92,7 @@ const OrbitSection = () => {
 
             {/* INNER ORBIT */}
             <motion.div
-              className="absolute h-50 w-[200px] rounded-full border border-border"
+              className="absolute h-50 w-[200px] rounded-full border-2 border-border"
               animate={{ rotate: 360 }}
               transition={{
                 repeat: Infinity,

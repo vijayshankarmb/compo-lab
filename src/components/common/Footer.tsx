@@ -100,19 +100,7 @@ export default function Footer() {
             style={{
                 scale: "1.5"
             }}
-              className="
-                text-9xl
-                font-bold
-                leading-none
-                tracking-tight
-                bg-gradient-to-b
-                from-neutral-50
-                to-neutral-800
-                bg-clip-text
-                text-transparent
-                opacity-70
-              "
-            >
+              className="text-9xl font-bold leading-none tracking-tight bg-gradient-to-b from-neutral-50 to-neutral-800 bg-clip-text text-transparent opacity-70">
               CompoLab
             </h2>
           </div>
