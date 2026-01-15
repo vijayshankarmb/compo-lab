@@ -8,14 +8,13 @@ import AnimatedBackground from '@/components/common/AnimatedBackground'
 
 const page = () => {
   return (
-    <AnimatedBackground>
+
     <Container>
       <Hero />
       <OrbitSection />
       <FeaturesSection />
       <WorkflowSection />
     </Container>
-    </AnimatedBackground>
   )
 }
 
