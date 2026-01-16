@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CompoLab
 
-## Getting Started
+CompoLab is a modern, high-performance SaaS landing page built with **Next.js 16**, **Tailwind CSS**, and **Framer Motion**. It features a futuristic, dark-themed design with fluid animations and a responsive component architecture, designed to provide an exceptional user experience.
 
-First, run the development server:
+## 🚀 Features
+
+- **Modern Tech Stack**: Built with the latest Next.js 16 (App Router) and React 19.
+- **Responsive Design**: Fully responsive layout that looks great on all devices, from mobile to desktop.
+- **Advanced Animations**: Smooth, fluid transitions and micro-interactions using `motion` (Framer Motion) and `tw-animate-css`.
+- **Dark Mode Aesthetic**: A sleek, dark-themed interface with carefully curated color palettes and glassmorphism effects.
+- **Interactive UI**: Magnetic navigation, orbit animations, and dynamic feature showcases.
+- **Modular Components**: A clean, reusable component structure separating `common` UI elements from specific `landing` page sections.
+- **Typography**: Uses `Poppins` for a modern, geometric look.
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animation**: [Motion](https://motion.dev/) (Framer Motion)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **UI Primitives**: [Radix UI](https://www.radix-ui.com/) (Slot)
+- **Fonts**: [Google Fonts](https://fonts.google.com/) (Poppins)
+
+## 📂 Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+src/
+├── app/                  # Next.js App Router pages
+│   ├── about/            # About page
+│   ├── features/         # Features page
+│   ├── pricing/          # Pricing page
+│   ├── globals.css       # Global styles and Tailwind imports
+│   └── layout.tsx        # Root layout with Navbar/Footer
+├── components/           # React Components
+│   ├── common/           # Shared components (Navbar, Footer, etc.)
+│   ├── landing/          # Landing page specific sections (Hero, Orbit, etc.)
+│   └── ui/               # Reusable UI primitives (Buttons, Cards)
+└── config/               # Configuration files (Navigation, etc.)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚡ Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Follow these steps to set up the project locally on your machine.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prerequisites
 
-## Learn More
+- Node.js 18.17 or later
+- npm, yarn, or pnpm
 
-To learn more about Next.js, take a look at the following resources:
+### Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/compo-lab.git
+   cd compo-lab
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
 
-## Deploy on Vercel
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **View the application**
+   Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📜 License
+
+This project is licensed under the MIT License. Feel free to use it for personal and commercial projects.
